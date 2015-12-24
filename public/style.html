@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+		<script>window.angular || document.write('<script src="./angular-1.4.1/angular.min.js"><\/script>');</script>
+    <style type="text/css">
+      .clrYellow {
+        background-color: #ff0
+      }
+      .clrCyan {
+        background-color: #0ff
+      }
+      .clrPurple {
+        background-color: #f0f
+      }
+    </style>
+	</head>
+	<body>
+	<form>
+    <button ng-click="myStyle={ backgroundColor: '#f00', color: '#fff' }">赤</button>
+    <button ng-click="myStyle={ backgroundColor: '#0f0' }">緑</button>
+    <button ng-click="myStyle={ backgroundColor: '#00f', color: '#fff' }">青</button>
+    <button ng-click="myStyle2='clrYellow'">黄</button>
+    <button ng-click="myStyle2='clrCyan'">水</button>
+    <button ng-click="myStyle2='clrPurple'">紫</button>
+  </form>
+  <div ng-style="myStyle">
+    <p>あああああああああああああああああ</p>
+  </div>
+  <div ng-class="myStyle2">
+    <p>いいいいいいいいいいいいいいいいい</p>
+  </div>
+	</body>
+</html>

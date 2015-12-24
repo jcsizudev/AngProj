@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+		<script>window.angular || document.write('<script src="./angular-1.4.1/angular.min.js"><\/script>');</script>
+    <script src="scripts/if.js"></script>
+	</head>
+	<body ng-controller="MyController">
+    <form>
+      <label for="show">表示/非表示</label>
+      <input id="show" type="checkbox" ng-model="show" />
+      <button ng-click="onclick()">背景反転</button>
+      <br>
+      <label for="show2">表示/非表示2</label>
+      <input id="show2" type="checkbox" ng-model="show2" />
+      <br>
+      <label for="show3">表示/非表示3</label>
+      <input id="show3" type="checkbox" ng-model="show3" />
+    </form>
+    <div id="panel" class="panel panel-default" ng-if="show">
+      <p>あああああああああああああｗｗｗｗｗｋｌんｌｓｄｓｄｓｄｄｓ</p>
+    </div>
+    <div ng-show="show2">
+      <p>おおおおおおおおおおおおおおおおおお</p>
+    </div>
+    <details id="panel2"class="panel panel-default" ng-open="show3">
+      <summary>サマリー</summary>
+      <p>ないよう</p>
+    </details>
+    <table class="table">
+      <tr ng-repeat="(key, value) in author">
+        <th>{{key}}</th>
+        <td>{{value}}</td>
+      </tr>
+    </table>
+	</body>
+</html>
