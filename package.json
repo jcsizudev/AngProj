@@ -6,6 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "MIT"
+  "author": "izu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://jcsizudev@github.com/jcsizudev/AngProj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jcsizudev/AngProj/issues"
+  },
+  "homepage": "https://github.com/jcsizudev/AngProj#readme"
 }
