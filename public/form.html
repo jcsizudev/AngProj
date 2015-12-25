@@ -8,12 +8,34 @@
 		<script>window.angular || document.write('<script src="./angular-1.4.1/angular.min.js"><\/script>');</script>
     <script src="scripts/form.js"></script>
 	</head>
-	<body>
+	<body ng-controller="MyController">
     <form name="myForm" ng-submit="onsubmit()" novalidate>
       <div>
-        <label for="mail">メールアドレス：</label>
+        <label for="mail">メールアドレス：</label><br />
         <input id="mail" name="mail" type="email" ng-model="user.mail" required />
         <span ng-show="myForm.mail.$error.required">メールアドレスは必須です。</span>
+        <span ng-show="myForm.mail.$error.email">メールアドレスを正しい形式で入力して下さい。</span>
+      </div>
+      <div>
+        <label for="password">パスワード：</label><br />
+        <input id="password" name="password" type="password" ng-model="user.password" required ng-minlength="6" />
+        <span ng-show="myForm.password.$error.required">パスワードは必須です。</span>
+        <span ng-show="myForm.password.$error.minlength">パスワードは６文字以上入力して下さい。</span>
+      </div>
+      <div>
+        <label for="name">名前（漢字）：</label><br />
+        <input id="name" name="name" type="text" ng-model="user.name" required ng-minlength="3" ng-maxlength="10" />
+        <span ng-show="myForm.name.$error.required">名前（漢字）は必須です。</span>
+        <span ng-show="myForm.name.$error.minlength">名前（漢字）は３文字以上入力して下さい。</span>
+        <span ng-show="myForm.name.$error.maxlength">名前（漢字）は１０文字以内で入力して下さい。</span>
+      </div>
+      <div>
+        <label for="memo">備考：</label><br />
+        <textarea id="memo" name="memo" rows="5" cols="30" type="text" ng-model="user.memo" ng-maxlength="10"></textarea>
+        <span ng-show="myForm.memo.$error.maxlength">備考は１０文字以内で入力して下さい。</span>
+      </div>
+      <div>
+        <input type="submit" value="登録" ng-disabled="myForm.$invalid" />
       </div>
     </form>
 	</body>

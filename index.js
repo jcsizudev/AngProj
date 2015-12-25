@@ -1,20 +1,34 @@
 var express = require('express');
 var path = require('path');
+var fs = require('fs');
 var app = express();
+var publicPath = path.join(__dirname, 'public');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(publicPath));
+console.log(publicPath);
 
 app.get('/', function (req, res) {
+  var filePath = "";
+  var dir = fs.readdirSync(publicPath);
   var cts = '<div>';
-  cts = cts + '<div><a href="binding.html">binding</a></div>';
-  cts = cts + '<div><a href="books.html">books</a></div>';
-  cts = cts + '<div><a href="include.html">include</a></div>';
-  cts = cts + '<div><a href="smpl1.html">smpl1</a></div>';
-  cts = cts + '<div><a href="template.html">template</a></div>';
-  cts = cts + '<div><a href="event.html">event</a></div>';
+  dir.filter(function (file) {
+    filePath = publicPath + '\\' + file;
+    return fs.statSync(filePath).isFile() && /.*\.html$/.test(filePath);
+  }).forEach(function (file) {
+    console.log(file);
+    cts = cts + '<div><a href="' + file +  '">' + file + '</a></div>';
+  });
   cts = cts + '</div>';
+
   res.send(cts);
 });
+
+app.get('/httptest', function (req, res) {
+  console.log(req.query.name);
+
+  res.send('こんにちは' + req.query.name + 'さん！');
+});
+
 
 var server = app.listen(3000, function () {
   var host = server.address().address;
