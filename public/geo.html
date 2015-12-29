@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+		<script>window.angular || document.write('<script src="./angular-1.4.1/angular.min.js"><\/script>');</script>
+    <script src="scripts/geo.js"></script>
+	</head>
+	<body ng-controller="MyController">
+    <div>
+      <button ng-click="onclick()">日の入り時刻を取得</button>
+      <div>{{result}}</div>
+    </div>
+	</body>
+</html>
