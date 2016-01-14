@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/context.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+		<script>window.angular || document.write('<script src="./angular-1.4.1/angular.min.js"><\/script>');</script>
+    <script src="scripts/context.js"></script>
+	</head>
+	<body ng-app="myApp">
+    <div ng-controller="MainCtrl">
+        <div ng-click="myClick($event)">Right Click On the Item!
+        </div>
+    </div>
+    <ul id='contextmenu-node' ng-class="'contextmenu-node'">
+      <li class='contextmenu-item' ng-click='clickedItem1()'>あああ</li>
+      <li class='contextmenu-item' ng-click='clickedItem2()'>ううう</li>
+    </ul>
+	</body>
+</html>
