@@ -6,9 +6,10 @@ var sqlite3 = require('sqlite3').verbose();
 var app = express();
 var router = express.Router();
 var publicPath = path.join(__dirname, 'public');
-var db = new sqlite3.Database(path.join(__dirname, 'db\\angular.db'));
+var dbPath = path.join(__dirname, 'db');
+var db = new sqlite3.Database(path.join(dbPath, 'angular.db'));
 
-console.log('dbpath:' + path.join(__dirname, 'db\\angular.db'));
+console.log('dbpath:' + path.join(dbPath, 'angular.db'));
 
 app.use(express.static(publicPath));
 console.log(publicPath);
@@ -21,7 +22,8 @@ app.get('/', function (req, res) {
   var dir = fs.readdirSync(publicPath);
   var cts = '<div>';
   dir.filter(function (file) {
-    filePath = publicPath + '\\' + file;
+  	filePath = path.join(publicPath, file);
+    //filePath = publicPath + '\\' + file;
     return fs.statSync(filePath).isFile() && /.*\.html$/.test(filePath);
   }).forEach(function (file) {
     console.log(file);
