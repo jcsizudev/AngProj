@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJS</title>
+    <link rel="stylesheet" href="css/mytab.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+		<script>window.angular || document.write('<script src="./angular-1.4.1/angular.min.js"><\/script>');</script>
+    <script src="scripts/mytab.js"></script>
+	</head>
+	<body ng-controller="MyController">
+    <my-tab-panel active="1">
+      <my-tab title="サーブレット＆JSPポケットリファレンス">
+        <h3>サーブレット3.1＆JSP2.3に対応</h3>
+        <p>Javaエンジニアには...</p>
+      </my-tab>
+      <my-tab title="PHPライブラリ＆サンプル実践活用">
+        <h3>厳選！使えるPHPのライブラリ</h3>
+        <p>たくさんのPHPライブラリ...</p>
+      </my-tab>
+      <my-tab title="Rails 4アプリケーションプログラミング">
+        <h3>Railsを初めて学ぶ人のために</h3>
+        <p>初心者にも分かりやすく...</p>
+      </my-tab>
+    </my-tab-panel>
+  </body>
+</html>
